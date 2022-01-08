@@ -11,7 +11,7 @@ public class ROT13 {
     return newText;
   }
 
-  public String encrypt (String text){
+  public String encrypt(String text, int offset){
     text = replaceMutatedVowels(text);
     text = text.toUpperCase();
     StringBuilder stringBuilder = new StringBuilder();
@@ -19,10 +19,13 @@ public class ROT13 {
     int length = text.length();
     for(int i = 0; i < length; i++){
       char currentChar = text.charAt(i);
-      if       (currentChar >= 'a' && currentChar <= 'm') currentChar += 13;
-      else if  (currentChar >= 'A' && currentChar <= 'M') currentChar += 13;
-      else if  (currentChar >= 'n' && currentChar <= 'z') currentChar -= 13;
-      else if  (currentChar >= 'N' && currentChar <= 'Z') currentChar -= 13;
+
+      if  (currentChar >= 'A' && currentChar <= 'M')
+        currentChar += offset;
+
+      else if  (currentChar >= 'N' && currentChar <= 'Z')
+        currentChar -= offset;
+
       stringBuilder.append(currentChar);
     }
 
