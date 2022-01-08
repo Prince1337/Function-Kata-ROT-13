@@ -7,6 +7,7 @@ public class ROT13 {
     newText = text.replaceAll("[Ä|ä]", "AE");
     newText = newText.replaceAll("[Ö|ö]", "OE");
     newText = newText.replaceAll("[Ü|ü]", "UE");
+    newText = newText.replaceAll("ß", "SS");
 
     return newText;
   }

@@ -40,6 +40,17 @@ class ROT13Test {
   }
 
   @Test
+  void replaceMutatedVowelsß(){
+    String actual = "Fußball";
+    String expected = "FuSSball";
+
+    ROT13 rot13 = new ROT13();
+    actual = rot13.replaceMutatedVowels(actual);
+
+    assertEquals(expected, actual);
+  }
+
+  @Test
   void replaceMutatedVowelsInUEberlebt(){
     String actual = "Überlebt";
     String expected = "UEberlebt";
